@@ -3,7 +3,6 @@ let express = require('express');
 let router = express.Router();
 let mongoose = require('mongoose');
 let passport = require('passport');
-//let flash = require('connect-flash');
 
 // define the user model
 let UserModel = require('../models/users');
@@ -25,7 +24,8 @@ function requireAuth(req, res, next) {
 router.get('/', (req, res, next) => {
   res.render('content/index', {
     title: 'Home',
-    books: ''
+    books: '',
+    displayName: req.user ? req.user.displayName : ''
    });
 });
 
