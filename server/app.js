@@ -5,6 +5,11 @@ let favicon = require('serve-favicon');
 let logger = require('morgan');
 let cookieParser = require('cookie-parser');
 let bodyParser = require('body-parser');
+let passport = require('passport');
+let passportlocal = require('passport-local');
+let passportlocalmongoose = require('passport-local-mongoose');
+let expresssession = require('express-session');
+let connectflash = require('connect-flash');
 
 // import "mongoose" - required for DB Access
 let mongoose = require('mongoose');
