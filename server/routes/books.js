@@ -1,3 +1,10 @@
+/*
+ *File: books.js
+ *Author: Arlina Ramrattan
+ *Author Studnet #: 300799246
+ *Web App Name: comp308-midterm-300799246 
+ */
+
 // modules required for routing
 let express = require('express');
 let router = express.Router();
@@ -60,10 +67,7 @@ router.post('/add', (req, res, next) => {
 // GET the Book Details page in order to edit an existing Book
 router.get('/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-        try {
+      try {
       // get a reference to the id from the url
       let id = mongoose.Types.ObjectId.createFromHexString(req.params.id);
 
@@ -92,15 +96,12 @@ router.get('/:id', (req, res, next) => {
 // POST - process the information passed from the details form and update the document
 router.post('/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
-        let id = req.params.id;
+     let id = req.params.id;
 
      let updatedBook = book({
-       "_id": id,
+     "_id": id,
      "Title": req.body.title,
-     "Description": req.body.description,
+     "Description": req.body.description, //not necessary
      "Price": req.body.price,
      "Author": req.body.author,
      "Genre": req.body.genre
@@ -120,9 +121,6 @@ router.post('/:id', (req, res, next) => {
 // GET - process the delete by user id
 router.get('/delete/:id', (req, res, next) => {
 
-    /*****************
-     * ADD CODE HERE *
-     *****************/
     // get a reference to the id from the url
     let id = req.params.id;
 
