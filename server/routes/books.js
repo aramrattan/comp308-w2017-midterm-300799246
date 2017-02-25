@@ -100,12 +100,21 @@ router.post('/:id', (req, res, next) => {
      let updatedBook = book({
        "_id": id,
      "Title": req.body.title,
-     //"Description": req.body.description,
+     "Description": req.body.description,
      "Price": req.body.price,
      "Author": req.body.author,
      "Genre": req.body.genre
 
 })
+    book.update({_id: id}, updatedBook, (err) => {
+      if(err) {
+        console.log(err);
+        res.end(err);
+      } else {
+        // refresh the book List
+        res.redirect('/books');
+      }
+    });
 });
 
 // GET - process the delete by user id
